@@ -93,8 +93,31 @@
                 Console.WriteLine("Invalid input, please try again");
             }
 
-
-
+            Console.WriteLine("Please enter a number"); //7
+            if (int.TryParse(Console.ReadLine(), out int userInput))
+            {
+                if (InRange(userInput, -10, 10))
+                {
+                    Console.WriteLine("You are in range!");
+                }
+                else
+                {
+                    Console.WriteLine("The integer you entered is outside the range.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please try again.");
+            }
+            Console.WriteLine("Enter an integer: ");
+            if (int.TryParse(Console.ReadLine(), out int givenNumber))
+            {
+                OutputMultiplication(givenNumber);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid integer.");
+            }
         }
 
         // 1
@@ -146,9 +169,26 @@
         {
             return number > 0;
         }
+        //6
          static bool CheckMyAge(int age)
         {
             return age >= 18;
+        }
+        //7
+        static bool InRange(int userInput, int minValue, int maxValue)
+        {
+            return userInput >= minValue && userInput <= maxValue;
+        }
+        //8
+        static void OutputMultiplication(int givenNumber)
+        {
+            Console.WriteLine($"Multiplication Table for {givenNumber}:");
+
+            for (int a = 1; a <= 12; a++)
+            {
+                int result = givenNumber * a;
+                Console.WriteLine($"{givenNumber} x {a} = {result}");
+            }
         }
     }
 }
